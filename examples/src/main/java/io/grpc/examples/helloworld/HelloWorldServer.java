@@ -86,5 +86,12 @@ public class HelloWorldServer {
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
     }
+
+    @Override
+    public void sayHelloAgain(HelloRequest request, StreamObserver<HelloReply> responseObserver) {
+      HelloReply helloReply = HelloReply.newBuilder().setMessage("Hello name " + request.getName()).build();
+      responseObserver.onNext(helloReply);
+      responseObserver.onCompleted();
+    }
   }
 }
